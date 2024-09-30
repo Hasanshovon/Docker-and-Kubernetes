@@ -154,3 +154,4 @@ See how docke built id is running
 ![alt text](image-14.png)
 
 now if you tyr `docker ps `then you will se running docker 
+![alt text](image-15.png)
