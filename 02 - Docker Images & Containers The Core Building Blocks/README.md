@@ -145,3 +145,7 @@ The next important step is the `EXPOSE` instruction. Since the Node server liste
 ![alt text](image-11.png)
 
 The Dockerfile now contains all the setup instructions for a Docker image. The content concludes by stating that the next steps are to see how to utilize this custom image, build it, and run it.
+
+## 006 Run Container
+
+![alt text](image-12.png)
