@@ -149,3 +149,8 @@ The Dockerfile now contains all the setup instructions for a Docker image. The c
 ## 006 Run Container
 
 ![alt text](image-12.png)
+
+See how docke built id is running 
+![alt text](image-14.png)
+
+now if you tyr `docker ps `then you will se running docker 
