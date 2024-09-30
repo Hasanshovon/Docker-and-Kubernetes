@@ -159,3 +159,13 @@ now if you try `docker ps `then you will se running docker
 ### how to stop docker ?
 docker stop docker_name 
 ![alt text](image-16.png)
+you can also check with command docker ps  or docker ps -a 
+
+but still there is  problem that port is not mentioned when docker run
+here p is the port 
+```shell
+docker run -p localhost_port:docker_port docker_id
+```
+![alt text](image-18.png)
+![alt text](image-17.png)
+it is working 
