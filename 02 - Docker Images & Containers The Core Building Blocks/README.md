@@ -33,6 +33,7 @@ docker run -it node
 ```
 
 ![alt text](image-4.png)
+
 If we repeat the command from before, docker run node, and we now add an extra flag in front of node, the dash IT flag, then we will actually tell Docker that we wanna expose an interactive session from inside the container to our hosting machine. And hence if we now hit enter, we actually are in that interactive node terminal where we can run basic node commands. For example, one plus one, but we could also use node API's in here. But that's of course not the focus of this session. Now the important thing about this here is that node here is now running inside of that created container and it's just exposed to us by adding this extra flag so we can interact with that container and with node running in the container. Node is not running on our machine here and I can prove this. Please note that here we're interacting with node 14.9, which is the version that at the moment I was recording this was pulled into this image, and therefore is being used in this container. Now if I quit this process with Control + C pressed twice now the container will shut down, when I quit this and I run node dash V here like this on my system so not inside of the container, I see 14.7 as a version.
 ![alt text](image-5.png)
 
