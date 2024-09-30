@@ -169,3 +169,7 @@ docker run -p localhost_port:docker_port docker_id
 ![alt text](image-18.png)
 ![alt text](image-17.png)
 it is working 
+
+### 008 : images are read-only 
+
+start from here !! 
