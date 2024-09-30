@@ -153,5 +153,9 @@ The Dockerfile now contains all the setup instructions for a Docker image. The c
 See how docke built id is running 
 ![alt text](image-14.png)
 
-now if you tyr `docker ps `then you will se running docker 
+now if you try `docker ps `then you will se running docker 
 ![alt text](image-15.png)
+
+### how to stop docker ?
+docker stop docker_name 
+![alt text](image-16.png)
