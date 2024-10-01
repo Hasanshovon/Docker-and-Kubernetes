@@ -349,10 +349,7 @@ For more help on how to use Docker, head to https://docs.docker.com/go/guides/
 ![alt text](image-21.png)
 `docker ps -a`
 this will show all docker which is running and not running. by using name we can run the docker again where i no need to imageid again. and also it will not block the terminal so we can give another command on a same terminal.
-
-## 013 Understanding Attached & Detached Containers
-
-Here is the extracted text with commands highlighted:
+ere is the extracted text with commands highlighted:
 
 Now I'm back in the demo project we worked on before, and I'll bring up that built-in terminal again. But you can of course also open up a default terminal outside of Visual Studio code. And there we got various commands which we can run with help of the Docker command. And as I mentioned, if you for example `run docker --help`, you get a list of the built-in main commands you can run with Docker. And you see there are quite a lot of commands there. Well, good news is a lot of these commands will not really matter to you in the vast majority of cases. There also are some commands from the past where we nowadays have better ways of achieving something. But still, you see we have quite a lot of commands here. You can obviously read these descriptions to see what these commands do, but it will come down to a couple of core commands you should be aware of. In addition, there also are some commands which also could be replaced by other commands executed differently. In general, with Docker for some operations you have multiple ways of performing that operation.
 
@@ -362,7 +359,8 @@ You don't always need to docker run a new container, because that's important. W
 
 Now you'll see it starts the container in a different mode. `It's not blocking the terminal as it did with docker run`, but I can tell you this container is up and running. And you can verify by running `docker ps` without the -a flag to only see the running containers. And you should see this container here. And we can also visit localhost 3000 and reload there. And there our application is up and running, thanks to this restarted container. But again, as I mentioned, this restarted container is in this strange mode where, yes, it did start. But no, we're not really able to interact with it or to see the logs. Instead, it started this container and then returned to the terminal so that we could enter more commands. And as I mentioned, that's different to what docker run did.
 
-Well, that's something we're going to explore next.
+## 013 Understanding Attached & Detached Containers
+
 
 ## 015 Entering Interactive Mode
 
