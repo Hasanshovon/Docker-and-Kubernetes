@@ -343,7 +343,9 @@ Run 'docker COMMAND --help' for more information on a command.
 For more help on how to use Docker, head to https://docs.docker.com/go/guides/
 ```
 ## 012 Stopping & Restarting Containers
-
+![alt text](image-21.png)
+`docker ps -a`
+this will show  all docker which is running and not running. by using name we can run the docker again where i no need to imageid again. and also it will not block the terminal so we can give another command on a same terminal.
 ## 013 Understanding Attached & Detached Containers
 
 ## 015 Entering Interactive Mode
