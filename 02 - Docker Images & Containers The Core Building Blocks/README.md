@@ -205,10 +205,12 @@ And here we have our first tiny bit of optimization potential for this Dockerfil
 So now only these layers would run again, and that will be more performant than running npm install again, which simply takes a certain amount of time to finish. I hope this makes sense. So if I now build this again, for the first time, it will run npm install and copy in everything, but then here we got our image name, and if we now use that to run our container, and we reload, we see this change in source code, of course, which I made before.
 
 But if we now stop this container, first of all, with Docker stop, and then go to server js and update the source code again to remove all the exclamation marks again, you will notice that if I rebuild the image with Docker build dot, it's now again super fast because it was able to use the cached result from npm install. Because the steps prior to npm install didn't change, because Docker sees that the package.json file did not change, it's the same as before, and therefore there was no need to copy that again and to run npm install again. The only change happened in this step, but that comes after npm install.
-- previous 
+
+- previous
+
 ```docker
 
-FROM node 
+FROM node
 
 WORKDIR /app
 
@@ -216,16 +218,17 @@ COPY . /app
 
 RUN npm install
 
-EXPOSE 80 
+EXPOSE 80
 
 CMD ["node", "server.js"]
 
 ```
+
 - after update
 
 ```docker
 
-FROM node 
+FROM node
 
 WORKDIR /app
 
@@ -235,14 +238,25 @@ RUN npm install
 
 COPY . /app
 
-EXPOSE 80 
+EXPOSE 80
 
 CMD ["node", "server.js"]
 
 ```
+
 So that's the first small optimization, but more important than that optimization is that you understand why we are doing it and that you understand this layer-based approach, this layer-based architecture. It's really important because it's a core concept in Docker and Docker images, and it exists for the reasons outlined in the last minutes.
 
 ## 010 A First Summary
+
+![alt text](image-20.png)
+
+By now we explored the core concepts about Images and Containers. And I just want to provide a first summary, on those concepts to ensure we're all on the same page. With Docker, it's all about Our Code in the end. Our application we're building, for example our web application. We put that code that makes up our application, into a so called Image. And we don't just put Our Code in there, but also the Environment, the tools we need to execute that Code. You learned that you can create such an Image, by creating such a Dockerfile, where you provide detailed instructions, on what should go into the Image, which base image you might be using, which code and which dependencies should be copied in there, if maybe some setup step like npm install is required, and if you then want to open up some internal port, so that you can listen to that from outside of the imagined deal for ultimately outside of the container in the end.
+
+And that's of course important. Docker ultimately is about containers, not images. But images are an important building block, they are the template, the blueprint for your containers. You can then instantiate, run multiple containers based on an Image. The Image is the thing that contains your Code and so on. The container as you learned is just an extra thin layer on top of the Image, but still the container in the end is your running application, based on an image, but then once it is running, standalone and independent from other containers that might be running.
+
+I want to emphasize though, that a container does not copy over the code and the environment from the image into a new container into a new file. That is not what's happening. A container will use the environment stored in an image, and then just add this extra layer on top of it, this running node server process for example, and allocate resources, memory and so on to run the application, but it will not copy that code. So Our Code and the node environment, is not getting copied three times here. If we have one image and two containers, it exists only once in the image and two containers, then utilize that image and the code in it. This is how Docker manages this, and that's of course very efficient.
+
+And that's the core idea behind Docker. Having those isolated environments that contain your app, and everything that is required to run that app, all the environment, all the tools like node js, and having all of that inside of this isolated container. That's what Docker is about, and that will be covered thus far, over the last lectures.
 
 ## 011 Managing Images & Containers
 
