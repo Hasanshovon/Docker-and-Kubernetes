@@ -460,6 +460,8 @@ after stopping docker you can remove docker
 ### How to remove docker images ?
 ![alt text](image-23.png)
 
+`docker image prune` command delte all unused images
+
 ## 017 Removing Stopped Containers Automatically
 
 ## 018 A Look Behind the Scenes Inspecting Images
