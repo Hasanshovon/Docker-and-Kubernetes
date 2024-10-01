@@ -174,8 +174,11 @@ docker run -p localhost_port:docker_port docker_id
 it is working
 
 ### 008 : images are read-only
+if we copy the files  from 005 and change the server.js where the html code are written. if we restart the docker , it will not show any update regarding this. 
+- now sort time solution is rebuild the docker again with code `docker build .`
 
-start from here !!
+![alt text](image-19.png)
+you can see the ! after my course goal header.
 
 ## 009 Understanding Image Layers
 
