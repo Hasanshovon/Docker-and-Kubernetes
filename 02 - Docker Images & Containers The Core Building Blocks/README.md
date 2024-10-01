@@ -384,7 +384,73 @@ We can also, if we inspect the options of docker logs, enter follow mode by addi
 Now, with that I will again docker stop eloquent_brown to bring down that container and detach myself again here. Now, one last note about all of that: if you would want to restart a stopped container like eloquent_brown here in attached mode, right from the start, you can do so by adding the -a flag to the start command. Now, you start this in attached mode.
 
 ## 015 Entering Interactive Mode
+- create `rng.py`
+```python
+from random import randint
 
+min_number = int(input('please enter the min number: '))
+max_number = int(input('please enter the max number: '))
+
+if (max_number < min_number):
+    print('invalid input - shutting down....')
+else:
+    rnd_number = randint(min_number,max_number)
+    print(rnd_number)
+```
+
+interactive mode
+
+```shell
+(base) tanvir@Tanvir:~/Desktop/Docker-and-Kubernetes/02 - Docker Images & Containers The Core Building Blocks/015 Entering Interactive Mode$ docker run --interactive --t
+--tmpfs  --tty    
+(base) tanvir@Tanvir:~/Desktop/Docker-and-Kubernetes/02 - Docker Images & Containers The Core Building Blocks/015 Entering Interactive Mode$ docker run --interactive --tty cabd027e302b
+please enter the min number: 4
+please enter the max number: 5
+4
+(base) tanvir@Tanvir:~/Desktop/Docker-and-Kubernetes/02 - Docker Images & Containers The Core Building Blocks/015 Entering Interactive Mode$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+(base) tanvir@Tanvir:~/Desktop/Docker-and-Kubernetes/02 - Docker Images & Containers The Core Building Blocks/015 Entering Interactive Mode$ docker ps -a
+CONTAINER ID   IMAGE                                 COMMAND                  CREATED          STATUS                      PORTS     NAMES
+6ee999e92731   cabd027e302b                          "python rng.py"          27 seconds ago   Exited (0) 19 seconds ago             dreamy_haibt
+42856a2f2e02   3f9a6189046a                          "docker-entrypoint.s…"   2 hours ago      Exited (137) 2 hours ago              modest_archimedes
+fd5792b0e00d   a7a2ef293a87                          "docker-entrypoint.s…"   2 hours ago      Exited (137) 2 hours ago              intelligent_meninsky
+6e71f65c290d   a7a2ef293a87                          "docker-entrypoint.s…"   2 hours ago      Exited (137) 2 hours ago              friendly_wescoff
+16b01ec3fc49   e6eeba46ed30                          "docker-entrypoint.s…"   13 hours ago     Exited (137) 13 hours ago             sweet_roentgen
+9facd3352414   e6eeba46ed30                          "docker-entrypoint.s…"   13 hours ago     Exited (137) 13 hours ago             sweet_grothendieck
+1ed48949382a   sdkmanager:2.1.0.11698-Ubuntu_18.04   "docker-entrypoint.s…"   2 weeks ago      Exited (0) 2 weeks ago                infallible_almeida
+8e822e1b7f64   sdkmanager:2.1.0.11698-Ubuntu_18.04   "docker-entrypoint.s…"   2 weeks ago      Exited (0) 2 weeks ago                gracious_poitras
+669ada277517   sdkmanager:2.1.0.11698-Ubuntu_18.04   "docker-entrypoint.s…"   2 weeks ago      Exited (0) 2 weeks ago                reverent_blackwell
+(base) tanvir@Tanvir:~/Desktop/Docker-and-Kubernetes/02 - Docker Images & Containers The Core Building Blocks/015 Entering Interactive Mode$ docker start --a dreamy_haibt 
+unknown flag: --a
+See 'docker start --help'.
+(base) tanvir@Tanvir:~/Desktop/Docker-and-Kubernetes/02 - Docker Images & Containers The Core Building Blocks/015 Entering Interactive Mode$ docker start -a dreamy_haibt 
+please enter the min number: 4
+6
+7
+
+7^C
+(base) tanvir@Tanvir:~/Desktop/Docker-and-Kubernetes/02 - Docker Images & Containers The Core Building Blocks/015 Entering Interactive Mode$ docker ps -a
+CONTAINER ID   IMAGE                                 COMMAND                  CREATED              STATUS                      PORTS     NAMES
+6ee999e92731   cabd027e302b                          "python rng.py"          About a minute ago   Up 10 seconds                         dreamy_haibt
+42856a2f2e02   3f9a6189046a                          "docker-entrypoint.s…"   2 hours ago          Exited (137) 2 hours ago              modest_archimedes
+fd5792b0e00d   a7a2ef293a87                          "docker-entrypoint.s…"   2 hours ago          Exited (137) 2 hours ago              intelligent_meninsky
+6e71f65c290d   a7a2ef293a87                          "docker-entrypoint.s…"   2 hours ago          Exited (137) 2 hours ago              friendly_wescoff
+16b01ec3fc49   e6eeba46ed30                          "docker-entrypoint.s…"   13 hours ago         Exited (137) 13 hours ago             sweet_roentgen
+9facd3352414   e6eeba46ed30                          "docker-entrypoint.s…"   13 hours ago         Exited (137) 13 hours ago             sweet_grothendieck
+1ed48949382a   sdkmanager:2.1.0.11698-Ubuntu_18.04   "docker-entrypoint.s…"   2 weeks ago          Exited (0) 2 weeks ago                infallible_almeida
+8e822e1b7f64   sdkmanager:2.1.0.11698-Ubuntu_18.04   "docker-entrypoint.s…"   2 weeks ago          Exited (0) 2 weeks ago                gracious_poitras
+669ada277517   sdkmanager:2.1.0.11698-Ubuntu_18.04   "docker-entrypoint.s…"   2 weeks ago          Exited (0) 2 weeks ago                reverent_blackwell
+(base) tanvir@Tanvir:~/Desktop/Docker-and-Kubernetes/02 - Docker Images & Containers The Core Building Blocks/015 Entering Interactive Mode$ docker ps
+CONTAINER ID   IMAGE          COMMAND           CREATED              STATUS          PORTS     NAMES
+6ee999e92731   cabd027e302b   "python rng.py"   About a minute ago   Up 14 seconds             dreamy_haibt
+(base) tanvir@Tanvir:~/Desktop/Docker-and-Kubernetes/02 - Docker Images & Containers The Core Building Blocks/015 Entering Interactive Mode$ docker stop dreamy_haibt 
+dreamy_haibt
+(base) tanvir@Tanvir:~/Desktop/Docker-and-Kubernetes/02 - Docker Images & Containers The Core Building Blocks/015 Entering Interactive Mode$ docker start -a -i dreamy_haibt 
+please enter the min number: 4
+please enter the max number: 5
+4
+(base) tanvir@Tanvir:~/Desktop/Docker-and-Kubernetes/02 - Docker Images & Containers The Core Building Blocks/015 Entering Interactive Mode$ 
+```
 ## 016 Deleting Images & Containers
 
 ## 017 Removing Stopped Containers Automatically
