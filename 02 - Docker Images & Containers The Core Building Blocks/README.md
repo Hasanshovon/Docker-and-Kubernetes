@@ -450,6 +450,7 @@ please enter the min number: 4
 please enter the max number: 5
 4
 (base) tanvir@Tanvir:~/Desktop/Docker-and-Kubernetes/02 - Docker Images & Containers The Core Building Blocks/015 Entering Interactive Mode$ 
+
 ```
 ## 016 Deleting Images & Containers
 
