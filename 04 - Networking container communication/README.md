@@ -94,7 +94,7 @@ E: Couldn't find any package by regex 'postman-linuxpostman-linux-x64.tar.gz'
 problem : no container show . even if we remove `-d`. it will crash due to no connection of mongo db !!
 ![alt text](image-4.png)
 but if we comment the mongodb code then it will work finely!!
-![alt text](image-5.png)
+
 
 ## 006 creating a container and communicaiton to web
 
