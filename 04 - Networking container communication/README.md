@@ -121,7 +121,24 @@ Out of the box, containers can send requests to the World Wide Web. You can comm
 So now let's have a look at the other two ways of communication and understand how we can make those work.
 
 ## 006 creating a container and communicaiton to web
+solution of previous problem :
+```js
+mongoose.connect(
+  // 'mongodb://localhost:27017/swfavorites', 
+  //--- this localhost is not recognised by docker----
+  'mongodb://host.docker.internal:27017/swfavorites'
+  { useNewUrlParser: true },
+  (err) => {
+    if (err) {
+      console.log(err);
+    } else {
+      app.listen(3000);
+    }
+  }
+);
 
+
+```
 ## 007 making container to host communication
 
 ## 008 container to container communication

@@ -68,7 +68,9 @@ app.get('/people', async (req, res) => {
 });
 
 mongoose.connect(
-  'mongodb://localhost:27017/swfavorites',
+  // 'mongodb://localhost:27017/swfavorites', 
+  //--- this localhost is not recognised by docker----
+  'mongodb://host.docker.internal:27017/swfavorites',
   { useNewUrlParser: true },
   (err) => {
     if (err) {
