@@ -49,8 +49,10 @@ So in this case, our application in the middle container might want to talk to t
 Because with Docker containers, it is strongly recommended and the best practice that every container should just do one main thing. So if you have a note application, which also needs a Mongo DB database, it is a recommendation and the best practice that your note application, so does app JS file and all the required dependencies and Alden and models folder, which belongs to this app, go into one container and one image and your Mongo DB database uses another image and runs in another container. This is a best practice, and we're going to learn way more about multi-container apps throughout this course. But this here is already a first example and therefore this example as well as most applications you're going to build with Docker, will typically need cross-container communication and that will therefore be another form of communication and of networking, which we're going to take a closer look at in this module.
 
 ## 005 analyzing the demo app
+
 build the docker with docker command
 `docker build -t favourite-node .`
+
 ```shell
  01-Intro.pdf
  Anaconda3-2024.06-1-Linux-x86_64.sh
@@ -71,25 +73,29 @@ build the docker with docker command
  VNC-Viewer-7.12.0-Linux-x64.deb
  vs.deb
 (base) tanvir@Tanvir:~/Downloads$ sudo apt-get install postman-linuxpostman-linux-x64.tar.gz
-[sudo] password for tanvir: 
+[sudo] password for tanvir:
 Reading package lists... Done
 Building dependency tree... Done
 Reading state information... Done
 E: Unable to locate package postman-linuxpostman-linux-x64.tar.gz
 E: Couldn't find any package by glob 'postman-linuxpostman-linux-x64.tar.gz'
 E: Couldn't find any package by regex 'postman-linuxpostman-linux-x64.tar.gz'
-(base) tanvir@Tanvir:~/Downloads$ 
+(base) tanvir@Tanvir:~/Downloads$
 
 ```
-- then run the docker 
+
+- then run the docker
 
 ```shell
 (base) tanvir@Tanvir:~/Desktop/Docker-and-Kubernetes/04 - Networking container communication/004 case 3 container to container$ docker run --name favourites -d --rm -p 3000:3000 favourites-node
 4642ec07a5df1eb6d476d3a601bf816b44e5ee4c1ba9100ad5c5d0e8c9ab201f
 ```
+
 problem : no container show . even if we remove `-d`. it will crash due to no connection of mongo db !!
 ![alt text](image-4.png)
 but if we comment the mongodb code then it will work finely!!
+![alt text](image-5.png)
+
 ## 006 creating a container and communicaiton to web
 
 ## 007 making container to host communication
