@@ -456,6 +456,10 @@ please enter the max number: 5
 after stopping docker you can remove docker
 `docker rm docker_name`
 ![alt text](image-22.png)
+
+### How to remove docker images ?
+![alt text](image-23.png)
+
 ## 017 Removing Stopped Containers Automatically
 
 ## 018 A Look Behind the Scenes Inspecting Images
