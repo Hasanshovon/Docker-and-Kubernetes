@@ -205,7 +205,41 @@ And here we have our first tiny bit of optimization potential for this Dockerfil
 So now only these layers would run again, and that will be more performant than running npm install again, which simply takes a certain amount of time to finish. I hope this makes sense. So if I now build this again, for the first time, it will run npm install and copy in everything, but then here we got our image name, and if we now use that to run our container, and we reload, we see this change in source code, of course, which I made before.
 
 But if we now stop this container, first of all, with Docker stop, and then go to server js and update the source code again to remove all the exclamation marks again, you will notice that if I rebuild the image with Docker build dot, it's now again super fast because it was able to use the cached result from npm install. Because the steps prior to npm install didn't change, because Docker sees that the package.json file did not change, it's the same as before, and therefore there was no need to copy that again and to run npm install again. The only change happened in this step, but that comes after npm install.
+- previous 
+```docker
 
+FROM node 
+
+WORKDIR /app
+
+COPY . /app
+
+RUN npm install
+
+EXPOSE 80 
+
+CMD ["node", "server.js"]
+
+```
+- after update
+
+```docker
+
+FROM node 
+
+WORKDIR /app
+
+COPY package.json /app
+
+RUN npm install
+
+COPY . /app
+
+EXPOSE 80 
+
+CMD ["node", "server.js"]
+
+```
 So that's the first small optimization, but more important than that optimization is that you understand why we are doing it and that you understand this layer-based approach, this layer-based architecture. It's really important because it's a core concept in Docker and Docker images, and it exists for the reasons outlined in the last minutes.
 
 ## 010 A First Summary
