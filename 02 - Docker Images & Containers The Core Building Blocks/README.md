@@ -150,26 +150,59 @@ The Dockerfile now contains all the setup instructions for a Docker image. The c
 
 ![alt text](image-12.png)
 
-See how docke built id is running 
+See how docke built id is running
 ![alt text](image-14.png)
 
-now if you try `docker ps `then you will se running docker 
+now if you try `docker ps `then you will se running docker
 ![alt text](image-15.png)
 
 ### how to stop docker ?
-docker stop docker_name 
-![alt text](image-16.png)
-you can also check with command docker ps  or docker ps -a 
 
-but still there is  problem that port is not mentioned when docker run
-here p is the port 
+docker stop docker_name
+![alt text](image-16.png)
+you can also check with command docker ps or docker ps -a
+
+but still there is problem that port is not mentioned when docker run
+here p is the port
+
 ```shell
 docker run -p localhost_port:docker_port docker_id
 ```
+
 ![alt text](image-18.png)
 ![alt text](image-17.png)
-it is working 
+it is working
 
-### 008 : images are read-only 
+### 008 : images are read-only
 
-start from here !! 
+start from here !!
+
+## 009 Understanding Image Layers
+
+## 010 A First Summary
+
+## 011 Managing Images & Containers
+
+## 012 Stopping & Restarting Containers
+
+## 013 Understanding Attached & Detached Containers
+
+## 015 Entering Interactive Mode
+
+## 016 Deleting Images & Containers
+
+## 017 Removing Stopped Containers Automatically
+
+## 018 A Look Behind the Scenes Inspecting Images
+
+## 019 Copying Files Into & From A Container
+
+## 020 Naming & Tagging Containers and Images
+
+## 021 Sharing Images - Overview
+
+## 022 Pushing Images to DockerHub
+
+## 023 Pulling & Using Shared Images
+
+## 024 Module Summary
